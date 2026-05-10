@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V1 · Refined Split — Plan Your Sunday (FBC Huntersville)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================================
+       V1 — Refined Concierge Split
+       Layout: 55/45 split. Photo left, warm-beige info panel right.
+       Strategy: Apply all 8 ui-review fixes from the original B mockup.
+                 Time anchor under headline. 4 anxiety-killer tiles.
+                 Strengthened lede. Equal-weight dual CTAs.
+       ============================================================= */
+
+    html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+    * { box-sizing: border-box; }
+
+    :root {
+      --navy: #1A3040;
+      --navy-soft: #2a4a60;
+      --teal: #0088b8;
+      --teal-dark: #006a8e;
+      --teal-light: #e6f4f9;
+      --beige: #F2EAE7;
+      --ink: #1A3040;
+      --ink-soft: #4a5d6c;
+      --rule: rgba(26, 48, 64, 0.12);
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* =============================================================
+       HEADER — FBC nav (matches established mockup pattern)
+       ============================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+    .brand-mark {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .brand-sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-top: 3px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal-dark); border-bottom-color: var(--teal); }
+    .brand-logo { height: 44px; width: auto; display: block; }
+    .caret {
+      display: inline-block;
+      margin-left: 3px;
+      font-size: 0.78em;
+      opacity: 0.55;
+      transition: opacity 0.2s;
+      vertical-align: middle;
+    }
+    .has-caret:hover .caret { opacity: 1; }
+
+    /* =============================================================
+       HERO — split layout
+       ============================================================= */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      min-height: calc(100vh - 70px);
+    }
+
+    /* Photo panel ------------------------------------------------- */
+    .photo {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(26,48,64,0.0) 0%, rgba(26,48,64,0.25) 100%),
+        url('../../home-page/IMG_1438.jpg') center / cover no-repeat;
+      min-height: 480px;
+    }
+    .photo-overline {
+      position: absolute;
+      left: 32px;
+      bottom: 32px;
+      color: rgba(255,255,255,0.92);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .photo-overline::before {
+      content: '';
+      display: inline-block;
+      width: 26px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.85);
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    /* Info panel -------------------------------------------------- */
+    .panel {
+      background: var(--beige);
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--teal);
+    }
+
+    .headline {
+      font-size: clamp(32px, 3.6vw, 44px);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--navy);
+      margin: 0 0 14px;
+      letter-spacing: -0.018em;
+    }
+    .headline em { font-style: normal; color: var(--teal-dark); }
+
+    /* TIME ANCHOR — fix for Issue #1 ----------------------------- */
+    .time-anchor {
+      font-size: 17px;
+      color: var(--navy);
+      margin: 0 0 22px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      padding: 10px 0 12px;
+      border-top: 2px solid var(--teal);
+      border-bottom: 1px solid var(--rule);
+      display: inline-block;
+    }
+    .time-anchor strong { font-weight: 700; }
+    .time-anchor span { color: var(--ink-soft); font-weight: 500; margin-left: 4px; }
+
+    .lede {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 32px;
+      max-width: 480px;
+    }
+    .lede b {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* ANXIETY TILES — 2x2 ---------------------------------------- */
+    .tiles {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 22px;
+      max-width: 540px;
+    }
+    .tile {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .tile .icon {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+    }
+    .tile .icon svg { width: 18px; height: 18px; }
+    .tile-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin: 4px 0 3px;
+    }
+    .tile-sub {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    /* ADDRESS — promoted weight ---------------------------------- */
+    .address {
+      font-size: 14px;
+      color: var(--navy);
+      margin: 0 0 26px;
+      padding: 12px 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 540px;
+      font-weight: 500;
+    }
+    .address svg { width: 14px; height: 14px; color: var(--teal); flex-shrink: 0; }
+    .address strong { font-weight: 700; }
+    .address a { border-bottom: 1px dotted var(--rule); padding-bottom: 1px; }
+    .address a:hover { color: var(--teal-dark); }
+
+    /* CTAs — equal weight ---------------------------------------- */
+    .ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 136, 184, 0.22);
+    }
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 106, 142, 0.32);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal-dark);
+      border: 2px solid var(--teal);
+      padding: 12px 22px;
+    }
+    .btn-secondary:hover {
+      background: var(--teal-light);
+      border-color: var(--teal-dark);
+    }
+    .btn svg { width: 14px; height: 14px; }
+
+    /* =============================================================
+       NEXT-SECTION TEASER — small strip so the page feels real
+       ============================================================= */
+    .below-fold {
+      padding: 48px 32px;
+      text-align: center;
+      color: var(--ink-soft);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .below-fold span { display: inline-flex; align-items: center; gap: 12px; }
+    .below-fold .arrow {
+      display: inline-block;
+      width: 1px;
+      height: 24px;
+      background: var(--rule);
+    }
+
+    /* =============================================================
+       RESPONSIVE
+       ============================================================= */
+    @media (max-width: 1100px) {
+      .panel { padding: 64px 40px; }
+      .tiles { grid-template-columns: 1fr; gap: 14px; }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .photo { min-height: 320px; order: 1; }
+      .panel { order: 2; padding: 44px 24px 56px; }
+      .headline { font-size: 28px; }
+      .time-anchor { font-size: 15px; }
+      .lede { font-size: 15px; }
+      .tiles { grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+      .ctas { flex-direction: column; align-items: stretch; gap: 12px; }
+      .btn { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .tiles { grid-template-columns: 1fr; }
+      .nav-inner { padding: 14px 18px; }
+      .brand-logo { height: 36px; }
+    }
+  
+    /* ============================================================
+       FBC Huntersville · WIX-FAITHFUL MASTHEAD
+       Replicates the live mishtoba.wixstudio.com/fbc-h header
+       layout, type, and dropdown behavior.
+       ============================================================ */
+    .wix-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    .wix-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .wix-brand {
+      flex-shrink: 0;
+      display: block;
+      text-decoration: none;
+    }
+    .wix-brand-logo {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+    .wix-nav { display: block; }
+    .wix-nav-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .wix-nav-item { position: relative; }
+    .wix-nav-item > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #0088b8;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      padding: 14px 0;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .wix-nav-item > a:hover { color: #006a8e; }
+    .wix-caret {
+      font-size: 11px;
+      display: inline-block;
+      margin-left: 2px;
+      transform: translateY(-1px);
+      opacity: 0.9;
+      font-weight: 400;
+    }
+    .wix-dropdown {
+      position: absolute;
+      top: 100%;
+      left: -18px;
+      background: #ffffff;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      min-width: 220px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 2px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity 0.18s, transform 0.18s, visibility 0s 0.18s;
+      z-index: 200;
+    }
+    .wix-has-dropdown:hover .wix-dropdown,
+    .wix-has-dropdown:focus-within .wix-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .wix-dropdown li a {
+      display: block;
+      padding: 10px 22px;
+      color: #1A3040;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .wix-dropdown li a:hover {
+      background: #e6f4f9;
+      color: #006a8e;
+    }
+    .wix-hamburger {
+      display: none;
+      background: transparent;
+      border: 0;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .wix-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #0088b8;
+      border-radius: 1px;
+    }
+    @media (max-width: 980px) {
+      .wix-nav { display: none; }
+      .wix-hamburger { display: flex; }
+      .wix-header-inner { padding: 10px 20px; }
+      .wix-brand-logo { height: 50px; }
+    }
+    @media (max-width: 480px) {
+      .wix-brand-logo { height: 44px; }
+    }
+
+    /* GitHub-Pages-deployable: every asset path is relative.
+       Logo lives at ../assets/logo.jpg, accessible from any
+       variant subfolder (concierge/, messaging/, people/). */
+  </style>
+</head>
+<body>
+
+  <!-- ===== SITE HEADER ===== -->
+  <header class="wix-header">
+    <div class="wix-header-inner">
+      <a href="#" class="wix-brand" aria-label="First Baptist Church Huntersville">
+        <img src="../assets/logo.jpg" alt="First Baptist Church Huntersville" class="wix-brand-logo" />
+      </a>
+
+      <nav class="wix-nav" aria-label="Site">
+        <ul class="wix-nav-items">
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">About<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="About">
+              <li><a href="#">Our Vision</a></li>
+              <li><a href="#">What We Believe</a></li>
+              <li><a href="#">Leadership</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Church Calendar</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item"><a href="#">Sermons</a></li>
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">Ministry<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="Ministry">
+              <li><a href="#">Worship &amp; Music</a></li>
+              <li><a href="#">Weekday Child Care</a></li>
+              <li><a href="#">Children</a></li>
+              <li><a href="#">Students</a></li>
+              <li><a href="#">Adults</a></li>
+              <li><a href="#">Seniors</a></li>
+              <li><a href="#">Latino</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item"><a href="#">Outreach</a></li>
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">Giving<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="Giving">
+              <li><a href="#">Ways to Give</a></li>
+              <li><a href="#">Stewardship</a></li>
+              <li><a href="#">Financial Resources</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="wix-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Plan your Sunday visit">
+
+    <div class="photo" role="img" aria-label="Sunset behind the FBC Huntersville steeple">
+      <span class="photo-overline">Huntersville, North Carolina</span>
+    </div>
+
+    <div class="panel">
+      <p class="eyebrow">First time with us?</p>
+
+      <h1 class="headline">Here&rsquo;s what <em>every Sunday</em> looks like.</h1>
+
+      <p class="time-anchor">
+        <strong>Sundays &middot; 11:00 AM Worship</strong>
+        <span>&middot; 9:45 AM Sunday School</span>
+      </p>
+
+      <p class="lede">
+        No pressure, no script &mdash; just real people gathering to worship,
+        learn, and look out for each other.
+        <b>Visitors don&rsquo;t give, don&rsquo;t sign anything, and don&rsquo;t get put on a call list.</b>
+        Whoever you are, there&rsquo;s a seat saved for you.
+      </p>
+
+      <ul class="tiles">
+
+        <li class="tile">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+              <circle cx="9" cy="8" r="3"/>
+              <path d="M16 11h6"/><path d="M19 8v6"/>
+            </svg>
+          </span>
+          <div>
+            <div class="tile-label">Kids are welcome &mdash; and safe</div>
+            <div class="tile-sub">Background-checked staff &middot; nursery through 5th grade</div>
+          </div>
+        </li>
+
+        <li class="tile">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M9 17V7h4a3 3 0 0 1 0 6H9"/>
+            </svg>
+          </span>
+          <div>
+            <div class="tile-label">Free parking, friendly greeters</div>
+            <div class="tile-sub">Right out front &middot; just ask if you need anything</div>
+          </div>
+        </li>
+
+        <li class="tile">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 7L12 3 4 7v6c0 4 3.5 7 8 8 4.5-1 8-4 8-8V7z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </span>
+          <div>
+            <div class="tile-label">Come as you are</div>
+            <div class="tile-sub">No dress code &middot; no quiz &middot; coffee&rsquo;s on us</div>
+          </div>
+        </li>
+
+        <li class="tile">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 7 12 12 15 14"/>
+            </svg>
+          </span>
+          <div>
+            <div class="tile-label">About 70 minutes</div>
+            <div class="tile-sub">You won&rsquo;t be singled out &middot; no stand-up, no name tag</div>
+          </div>
+        </li>
+
+      </ul>
+
+      <p class="address">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>
+          <a href="https://maps.google.com/?q=14813+N+Statesville+Rd+Huntersville+NC" target="_blank" rel="noopener">
+            <strong>14813 N Statesville Rd</strong>, Huntersville, NC 28078
+          </a>
+        </span>
+      </p>
+
+      <div class="ctas">
+        <a href="#what-to-expect" class="btn btn-primary">
+          Plan Your Visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="#im-coming" class="btn btn-secondary">
+          I&rsquo;m Coming Sunday
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== Below-the-fold teaser ===== -->
+  <div class="below-fold">
+    <span>
+      <span class="arrow"></span>
+      Sermons &middot; Ministries &middot; Our Story below
+      <span class="arrow"></span>
+    </span>
+  </div>
+
+</body>
+</html>

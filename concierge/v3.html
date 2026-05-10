@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V3 · Editorial Magazine — Plan Your Sunday (FBC Huntersville)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================================
+       V3 — Editorial Magazine
+       Layout: Three vertical zones.
+         Zone A: Big editorial headline + lede on white/beige
+         Zone B: Photo + service-time callout (asymmetric pair)
+         Zone C: Anxiety-reassurance row at bottom
+       Strategy: Magazine-feel, breathing room, text-led. Trades
+                 immediate visual punch for refinement and trust.
+       ============================================================= */
+
+    html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+    * { box-sizing: border-box; }
+
+    :root {
+      --navy: #1A3040;
+      --navy-deep: #0e1f2c;
+      --teal: #0088b8;
+      --teal-dark: #006a8e;
+      --teal-light: #e6f4f9;
+      --beige: #F2EAE7;
+      --beige-deep: #e8ddd8;
+      --ink: #1A3040;
+      --ink-soft: #4a5d6c;
+      --rule: rgba(26, 48, 64, 0.12);
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* =============================================================
+       HEADER
+       ============================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #fff;
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; flex-direction: column; line-height: 1.05; }
+    .brand-mark {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .brand-sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-top: 3px;
+    }
+    .nav-links { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal-dark); border-bottom-color: var(--teal); }
+    .brand-logo { height: 44px; width: auto; display: block; }
+    .caret {
+      display: inline-block;
+      margin-left: 3px;
+      font-size: 0.78em;
+      opacity: 0.55;
+      transition: opacity 0.2s;
+      vertical-align: middle;
+    }
+    .has-caret:hover .caret { opacity: 1; }
+
+    /* =============================================================
+       HERO — three editorial zones
+       ============================================================= */
+    .hero {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 64px 40px 0;
+    }
+
+    /* Zone A — Editorial headline ------------------------------- */
+    .editorial-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      padding-bottom: 56px;
+    }
+    .editorial-head .left {
+      max-width: 560px;
+    }
+    .ed-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin: 0 0 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ed-eyebrow::before {
+      content: '';
+      width: 38px;
+      height: 1.5px;
+      background: var(--teal);
+    }
+    .ed-headline {
+      font-size: clamp(40px, 5.4vw, 72px);
+      font-weight: 700;
+      line-height: 1.0;
+      color: var(--navy);
+      margin: 0;
+      letter-spacing: -0.028em;
+    }
+    .ed-headline em {
+      font-style: normal;
+      color: var(--teal-dark);
+      font-weight: 800;
+    }
+
+    .editorial-head .right {
+      max-width: 520px;
+      padding-bottom: 8px;
+    }
+    .ed-lede {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+      font-weight: 400;
+    }
+    .ed-lede b { color: var(--navy); font-weight: 600; }
+
+    .ed-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 24px;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 136, 184, 0.22);
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal-dark);
+      border: 2px solid var(--teal);
+      padding: 12px 22px;
+    }
+    .btn-secondary:hover { background: var(--teal-light); border-color: var(--teal-dark); }
+    .btn svg { width: 13px; height: 13px; }
+
+    /* Zone B — Photo + service times callout ------------------- */
+    .editorial-feature {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .feature-photo {
+      position: relative;
+      height: 480px;
+      border-radius: 4px;
+      background:
+        linear-gradient(180deg, rgba(26,48,64,0) 50%, rgba(26,48,64,0.55) 100%),
+        url('../../home-page/IMG_1438.jpg') center 30% / cover no-repeat;
+      overflow: hidden;
+    }
+    .feature-photo .caption {
+      position: absolute;
+      left: 28px;
+      bottom: 24px;
+      color: rgba(255,255,255,0.92);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .feature-photo .caption::before {
+      content: '';
+      display: inline-block;
+      width: 26px; height: 1.5px;
+      background: rgba(255,255,255,0.85);
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    .feature-callout {
+      background: var(--navy);
+      color: #fff;
+      padding: 36px 32px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-callout::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
+    }
+    .callout-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin: 0 0 18px;
+    }
+    .service {
+      margin-bottom: 22px;
+    }
+    .service:last-of-type { margin-bottom: 0; }
+    .service-time {
+      font-size: 30px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.018em;
+      margin: 0 0 4px;
+    }
+    .service-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+    }
+    .service-sub {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 2px;
+    }
+    .callout-meta {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 12px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.55;
+    }
+    .callout-meta a {
+      color: var(--teal-light);
+      font-weight: 600;
+      border-bottom: 1px dotted rgba(230,244,249,0.4);
+    }
+    .callout-meta a:hover { color: #fff; }
+
+    /* Zone C — Anxiety reassurance row ------------------------- */
+    .reassurance {
+      background: var(--beige);
+      border-radius: 4px;
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: auto repeat(4, 1fr);
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .reassurance-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      max-width: 140px;
+      line-height: 1.4;
+    }
+    .reassurance-title em {
+      font-style: normal;
+      color: var(--teal-dark);
+    }
+    .r-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .r-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+    }
+    .r-icon svg { width: 16px; height: 16px; }
+    .r-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin: 2px 0 2px;
+    }
+    .r-sub {
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    /* =============================================================
+       BELOW-FOLD TEASER
+       ============================================================= */
+    .below-fold {
+      padding: 36px 32px 56px;
+      text-align: center;
+      color: var(--ink-soft);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .below-fold span { display: inline-flex; align-items: center; gap: 12px; }
+    .below-fold .arrow { display: inline-block; width: 1px; height: 24px; background: var(--rule); }
+
+    /* =============================================================
+       RESPONSIVE
+       ============================================================= */
+    @media (max-width: 1100px) {
+      .editorial-head { gap: 40px; }
+      .ed-headline { font-size: clamp(36px, 5vw, 56px); }
+      .reassurance { grid-template-columns: 1fr 1fr; gap: 24px 28px; }
+      .reassurance-title { grid-column: 1 / -1; max-width: none; }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero { padding: 40px 24px 0; }
+      .editorial-head {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-bottom: 36px;
+      }
+      .editorial-feature {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .feature-photo { height: 320px; }
+    }
+    @media (max-width: 560px) {
+      .reassurance { grid-template-columns: 1fr; gap: 20px; padding: 28px 24px; }
+      .ed-ctas { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+      .feature-callout { padding: 28px 24px; }
+      .service-time { font-size: 26px; }
+      .brand-logo { height: 36px; }
+      .nav-inner { padding: 14px 18px; }
+    }
+  
+    /* ============================================================
+       FBC Huntersville · WIX-FAITHFUL MASTHEAD
+       Replicates the live mishtoba.wixstudio.com/fbc-h header
+       layout, type, and dropdown behavior.
+       ============================================================ */
+    .wix-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    .wix-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .wix-brand {
+      flex-shrink: 0;
+      display: block;
+      text-decoration: none;
+    }
+    .wix-brand-logo {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+    .wix-nav { display: block; }
+    .wix-nav-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .wix-nav-item { position: relative; }
+    .wix-nav-item > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #0088b8;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      padding: 14px 0;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .wix-nav-item > a:hover { color: #006a8e; }
+    .wix-caret {
+      font-size: 11px;
+      display: inline-block;
+      margin-left: 2px;
+      transform: translateY(-1px);
+      opacity: 0.9;
+      font-weight: 400;
+    }
+    .wix-dropdown {
+      position: absolute;
+      top: 100%;
+      left: -18px;
+      background: #ffffff;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      min-width: 220px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 2px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity 0.18s, transform 0.18s, visibility 0s 0.18s;
+      z-index: 200;
+    }
+    .wix-has-dropdown:hover .wix-dropdown,
+    .wix-has-dropdown:focus-within .wix-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .wix-dropdown li a {
+      display: block;
+      padding: 10px 22px;
+      color: #1A3040;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .wix-dropdown li a:hover {
+      background: #e6f4f9;
+      color: #006a8e;
+    }
+    .wix-hamburger {
+      display: none;
+      background: transparent;
+      border: 0;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .wix-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #0088b8;
+      border-radius: 1px;
+    }
+    @media (max-width: 980px) {
+      .wix-nav { display: none; }
+      .wix-hamburger { display: flex; }
+      .wix-header-inner { padding: 10px 20px; }
+      .wix-brand-logo { height: 50px; }
+    }
+    @media (max-width: 480px) {
+      .wix-brand-logo { height: 44px; }
+    }
+
+    /* GitHub-Pages-deployable: every asset path is relative.
+       Logo lives at ../assets/logo.jpg, accessible from any
+       variant subfolder (concierge/, messaging/, people/). */
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="wix-header">
+    <div class="wix-header-inner">
+      <a href="#" class="wix-brand" aria-label="First Baptist Church Huntersville">
+        <img src="../assets/logo.jpg" alt="First Baptist Church Huntersville" class="wix-brand-logo" />
+      </a>
+
+      <nav class="wix-nav" aria-label="Site">
+        <ul class="wix-nav-items">
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">About<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="About">
+              <li><a href="#">Our Vision</a></li>
+              <li><a href="#">What We Believe</a></li>
+              <li><a href="#">Leadership</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Church Calendar</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item"><a href="#">Sermons</a></li>
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">Ministry<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="Ministry">
+              <li><a href="#">Worship &amp; Music</a></li>
+              <li><a href="#">Weekday Child Care</a></li>
+              <li><a href="#">Children</a></li>
+              <li><a href="#">Students</a></li>
+              <li><a href="#">Adults</a></li>
+              <li><a href="#">Seniors</a></li>
+              <li><a href="#">Latino</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item"><a href="#">Outreach</a></li>
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">Giving<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="Giving">
+              <li><a href="#">Ways to Give</a></li>
+              <li><a href="#">Stewardship</a></li>
+              <li><a href="#">Financial Resources</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="wix-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO — three editorial zones ===== -->
+  <section class="hero" aria-label="Plan your Sunday visit">
+
+    <!-- ZONE A — editorial headline -->
+    <div class="editorial-head">
+      <div class="left">
+        <p class="ed-eyebrow">First time with us</p>
+        <h1 class="ed-headline">
+          Here&rsquo;s what<br/>
+          <em>every Sunday</em><br/>
+          looks like.
+        </h1>
+      </div>
+      <div class="right">
+        <p class="ed-lede">
+          No pressure, no script &mdash; just real people gathering to worship,
+          learn, and look out for each other.
+          <b>Visitors don&rsquo;t give, don&rsquo;t sign anything, and don&rsquo;t get put on a call list.</b>
+          Whoever you are, there&rsquo;s a seat saved for you.
+        </p>
+        <div class="ed-ctas">
+          <a href="#what-to-expect" class="btn btn-primary">
+            Plan Your Visit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a href="#im-coming" class="btn btn-secondary">
+            I&rsquo;m Coming Sunday
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ZONE B — photo + service times callout -->
+    <div class="editorial-feature">
+      <div class="feature-photo" role="img" aria-label="Sunset behind the FBC Huntersville steeple">
+        <span class="caption">Huntersville, North Carolina</span>
+      </div>
+      <aside class="feature-callout">
+        <p class="callout-label">This Sunday</p>
+        <div>
+          <div class="service">
+            <p class="service-time">9:45 AM</p>
+            <p class="service-name">Sunday School</p>
+            <p class="service-sub">Classes for every age</p>
+          </div>
+          <div class="service">
+            <p class="service-time">11:00 AM</p>
+            <p class="service-name">Worship Service</p>
+            <p class="service-sub">English &middot; Latino service same time</p>
+          </div>
+        </div>
+        <p class="callout-meta">
+          About 70 minutes &middot;
+          <a href="https://maps.google.com/?q=14813+N+Statesville+Rd+Huntersville+NC" target="_blank" rel="noopener">14813 N Statesville Rd</a>
+        </p>
+      </aside>
+    </div>
+
+    <!-- ZONE C — anxiety reassurance -->
+    <div class="reassurance">
+      <p class="reassurance-title">What to <em>expect</em></p>
+
+      <div class="r-item">
+        <span class="r-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="9" cy="8" r="3"/></svg>
+        </span>
+        <div>
+          <div class="r-label">Kids welcomed</div>
+          <div class="r-sub">Background-checked staff</div>
+        </div>
+      </div>
+
+      <div class="r-item">
+        <span class="r-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+        </span>
+        <div>
+          <div class="r-label">Free parking</div>
+          <div class="r-sub">Greeters at the door</div>
+        </div>
+      </div>
+
+      <div class="r-item">
+        <span class="r-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L12 3 4 7v6c0 4 3.5 7 8 8 4.5-1 8-4 8-8V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <div>
+          <div class="r-label">Come as you are</div>
+          <div class="r-sub">No dress code &middot; coffee&rsquo;s on us</div>
+        </div>
+      </div>
+
+      <div class="r-item">
+        <span class="r-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+        </span>
+        <div>
+          <div class="r-label">Won&rsquo;t be singled out</div>
+          <div class="r-sub">No stand-up &middot; no name tag</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="below-fold">
+    <span>
+      <span class="arrow"></span>
+      Sermons &middot; Ministries &middot; Our Story below
+      <span class="arrow"></span>
+    </span>
+  </div>
+
+</body>
+</html>

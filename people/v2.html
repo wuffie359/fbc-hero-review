@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V2 · Congregation From Behind — FBC Huntersville</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================================
+       V2 — Congregation From Behind (Split Layout)
+       People imagery: Wide shot from the back of the sanctuary,
+       looking forward over rows of seated/standing congregation.
+       All you see are heads and shoulders. Nobody identifiable.
+       Reads as "this is a real, full church."
+
+       PHOTO DIRECTION FOR PRODUCTION:
+       Camera positioned in the back row of the sanctuary or in
+       a balcony. Wide-angle lens. Frame shows the congregation
+       from behind (back-of-head shots only) with the worship
+       stage / cross / altar visible at the focal point in the
+       distance. Soft natural light or warm sanctuary lighting.
+       Capture during worship when most are standing/seated facing
+       forward. NO faces in frame. Hold the moment — singing,
+       prayer, or attentive listening all read well.
+       ============================================================= */
+
+    html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+    * { box-sizing: border-box; }
+
+    :root {
+      --navy: #1A3040;
+      --teal: #0088b8;
+      --teal-dark: #006a8e;
+      --teal-light: #e6f4f9;
+      --beige: #F2EAE7;
+      --ink-soft: #4a5d6c;
+      --rule: rgba(26, 48, 64, 0.12);
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+      color: var(--navy);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* HEADER (white) */
+    .site-header {
+      position: sticky;
+      top: 0; z-index: 50;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; flex-direction: column; line-height: 1.05; }
+    .brand-mark { font-size: 17px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+    .brand-sub {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal-dark); margin-top: 3px;
+    }
+    .nav-links { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+    .nav-links a {
+      font-size: 13px; font-weight: 600;
+      color: var(--navy); letter-spacing: 0.02em;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal-dark); border-bottom-color: var(--teal); }
+    .brand-logo { height: 44px; width: auto; display: block; }
+    .caret {
+      display: inline-block;
+      margin-left: 3px;
+      font-size: 0.78em;
+      opacity: 0.55;
+      transition: opacity 0.2s;
+      vertical-align: middle;
+    }
+    .has-caret:hover .caret { opacity: 1; }
+
+    /* HERO — split: photo left, text right */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      min-height: calc(100vh - 70px);
+    }
+
+    .photo {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(26,48,64,0.0) 50%, rgba(26,48,64,0.5) 100%),
+        url('https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1800&q=80') center / cover no-repeat;
+      min-height: 480px;
+    }
+    .photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.3) 100%);
+      pointer-events: none;
+    }
+    .photo-caption {
+      position: absolute;
+      left: 32px; bottom: 32px;
+      color: rgba(255,255,255,0.92);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+    .photo-caption::before {
+      content: '';
+      display: inline-block;
+      width: 26px; height: 1.5px;
+      background: rgba(255,255,255,0.85);
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    .photo-direction {
+      position: absolute;
+      right: 24px; bottom: 24px;
+      max-width: 320px;
+      background: rgba(26, 48, 64, 0.85);
+      color: #fff;
+      padding: 14px 18px;
+      border-left: 3px solid var(--teal);
+      font-size: 11px;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      border-radius: 2px;
+      backdrop-filter: blur(6px);
+      z-index: 3;
+    }
+    .photo-direction strong {
+      display: block;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 9.5px;
+      color: var(--teal-light);
+      margin-bottom: 6px;
+    }
+
+    /* Right text panel */
+    .panel {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .pre-headline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin: 0 0 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .pre-headline::before {
+      content: '';
+      width: 32px;
+      height: 1.5px;
+      background: var(--teal);
+    }
+
+    .headline {
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.06;
+      color: var(--navy);
+      margin: 0 0 24px;
+      letter-spacing: -0.022em;
+    }
+    .headline em {
+      font-style: normal;
+      color: var(--teal-dark);
+    }
+
+    .sub {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 460px;
+      margin: 0 0 36px;
+      font-weight: 400;
+    }
+
+    .ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 24px;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--teal); color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 136, 184, 0.22);
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal-dark);
+      border: 2px solid var(--teal);
+      padding: 12px 22px;
+    }
+    .btn-secondary:hover { background: var(--teal-light); border-color: var(--teal-dark); }
+    .btn svg { width: 13px; height: 13px; }
+
+    .meta {
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+      font-size: 12px;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      max-width: 460px;
+    }
+    .meta strong { color: var(--navy); font-weight: 700; }
+
+    /* Below-fold */
+    .below-fold {
+      padding: 48px 32px;
+      text-align: center;
+      color: var(--ink-soft);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .below-fold span { display: inline-flex; align-items: center; gap: 12px; }
+    .below-fold .arrow { display: inline-block; width: 1px; height: 24px; background: var(--rule); }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .panel { padding: 64px 40px; }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .photo-direction { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .photo { min-height: 320px; order: 1; }
+      .panel { order: 2; padding: 48px 24px 56px; }
+      .ctas { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .brand-logo { height: 36px; }
+      .nav-inner { padding: 14px 18px; }
+    }
+  
+    /* ============================================================
+       FBC Huntersville · WIX-FAITHFUL MASTHEAD
+       Replicates the live mishtoba.wixstudio.com/fbc-h header
+       layout, type, and dropdown behavior.
+       ============================================================ */
+    .wix-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    .wix-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .wix-brand {
+      flex-shrink: 0;
+      display: block;
+      text-decoration: none;
+    }
+    .wix-brand-logo {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+    .wix-nav { display: block; }
+    .wix-nav-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .wix-nav-item { position: relative; }
+    .wix-nav-item > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #0088b8;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      padding: 14px 0;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .wix-nav-item > a:hover { color: #006a8e; }
+    .wix-caret {
+      font-size: 11px;
+      display: inline-block;
+      margin-left: 2px;
+      transform: translateY(-1px);
+      opacity: 0.9;
+      font-weight: 400;
+    }
+    .wix-dropdown {
+      position: absolute;
+      top: 100%;
+      left: -18px;
+      background: #ffffff;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      min-width: 220px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 2px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity 0.18s, transform 0.18s, visibility 0s 0.18s;
+      z-index: 200;
+    }
+    .wix-has-dropdown:hover .wix-dropdown,
+    .wix-has-dropdown:focus-within .wix-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .wix-dropdown li a {
+      display: block;
+      padding: 10px 22px;
+      color: #1A3040;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .wix-dropdown li a:hover {
+      background: #e6f4f9;
+      color: #006a8e;
+    }
+    .wix-hamburger {
+      display: none;
+      background: transparent;
+      border: 0;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .wix-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #0088b8;
+      border-radius: 1px;
+    }
+    @media (max-width: 980px) {
+      .wix-nav { display: none; }
+      .wix-hamburger { display: flex; }
+      .wix-header-inner { padding: 10px 20px; }
+      .wix-brand-logo { height: 50px; }
+    }
+    @media (max-width: 480px) {
+      .wix-brand-logo { height: 44px; }
+    }
+
+    /* GitHub-Pages-deployable: every asset path is relative.
+       Logo lives at ../assets/logo.jpg, accessible from any
+       variant subfolder (concierge/, messaging/, people/). */
+  </style>
+</head>
+<body>
+
+  <header class="wix-header">
+    <div class="wix-header-inner">
+      <a href="#" class="wix-brand" aria-label="First Baptist Church Huntersville">
+        <img src="../assets/logo.jpg" alt="First Baptist Church Huntersville" class="wix-brand-logo" />
+      </a>
+
+      <nav class="wix-nav" aria-label="Site">
+        <ul class="wix-nav-items">
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">About<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="About">
+              <li><a href="#">Our Vision</a></li>
+              <li><a href="#">What We Believe</a></li>
+              <li><a href="#">Leadership</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Church Calendar</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item"><a href="#">Sermons</a></li>
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">Ministry<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="Ministry">
+              <li><a href="#">Worship &amp; Music</a></li>
+              <li><a href="#">Weekday Child Care</a></li>
+              <li><a href="#">Children</a></li>
+              <li><a href="#">Students</a></li>
+              <li><a href="#">Adults</a></li>
+              <li><a href="#">Seniors</a></li>
+              <li><a href="#">Latino</a></li>
+            </ul>
+          </li>
+          <li class="wix-nav-item"><a href="#">Outreach</a></li>
+          <li class="wix-nav-item wix-has-dropdown">
+            <a href="#">Giving<span class="wix-caret" aria-hidden="true">&#x2304;</span></a>
+            <ul class="wix-dropdown" aria-label="Giving">
+              <li><a href="#">Ways to Give</a></li>
+              <li><a href="#">Stewardship</a></li>
+              <li><a href="#">Financial Resources</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="wix-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+
+    <div class="photo" role="img" aria-label="Photo direction: congregation seen from behind during worship">
+      <span class="photo-caption">Sundays · 11:00 AM</span>
+      <aside class="photo-direction">
+        <strong>Photo direction</strong>
+        Wide shot from back of sanctuary looking forward. Heads &amp; shoulders only — no faces. Soft warm lighting. Captures real, full church without identifying any individual.
+      </aside>
+    </div>
+
+    <div class="panel">
+      <p class="pre-headline">Welcome to First Baptist Church Huntersville</p>
+
+      <h1 class="headline">
+        <em>Real Relationships</em> with God and One Another
+      </h1>
+
+      <p class="sub">A welcoming place to worship, grow, and serve together.</p>
+
+      <div class="ctas">
+        <a href="#watch" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Watch Online
+        </a>
+        <a href="#plan" class="btn btn-secondary">Plan a Visit</a>
+      </div>
+
+      <p class="meta">
+        <strong>9:45 AM</strong> Sunday School &middot;
+        <strong>11:00 AM</strong> Worship Service &middot; English &amp; Latino
+      </p>
+    </div>
+
+  </section>
+
+  <div class="below-fold">
+    <span><span class="arrow"></span>Sermons &middot; Ministries &middot; Our Story below<span class="arrow"></span></span>
+  </div>
+
+</body>
+</html>

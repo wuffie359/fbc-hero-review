@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage Hero Prototypes — FBC Huntersville</title>
+  <meta name="description" content="Nine homepage hero prototypes across three strategic directions for First Baptist Church Huntersville. Conversation-starters for leadership review.">
+  <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================================
+       FBC HUNTERSVILLE · HOMEPAGE HERO PROTOTYPES — REVIEW SITE
+       Single-page review document. Built to deploy on GitHub Pages.
+       All asset paths are relative; no external CMS required.
+       ============================================================= */
+
+    html, body { margin: 0; padding: 0; width: 100%; }
+    * { box-sizing: border-box; }
+
+    :root {
+      --navy: #1A3040;
+      --navy-deep: #0e1f2c;
+      --teal: #0088b8;
+      --teal-dark: #006a8e;
+      --teal-light: #e6f4f9;
+      --beige: #F2EAE7;
+      --beige-deep: #e8ddd8;
+      --ink: #1A3040;
+      --ink-soft: #4a5d6c;
+      --ink-quiet: #6b7c8b;
+      --rule: rgba(26, 48, 64, 0.12);
+      --rule-strong: rgba(26, 48, 64, 0.2);
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: #fafbfc;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+
+    /* ============================ DOC HEADER ============================ */
+    .doc-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 48px 32px 56px;
+      border-bottom: 4px solid var(--teal);
+    }
+    .doc-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin: 0 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .doc-eyebrow::before {
+      content: '';
+      width: 36px;
+      height: 1.5px;
+      background: var(--teal);
+    }
+    .doc-title {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+      color: #fff;
+      max-width: 820px;
+    }
+    .doc-title em {
+      font-style: normal;
+      color: var(--teal-light);
+    }
+    .doc-meta {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.04em;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .doc-meta strong { color: #fff; font-weight: 700; }
+    .doc-meta-item { display: flex; align-items: center; gap: 8px; }
+    .doc-meta-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+    .doc-meta-item:first-child::before { display: none; }
+
+    /* ============================ INTRO ============================ */
+    .intro {
+      background: #fff;
+      padding: 64px 32px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .intro-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+    .intro-lead {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--navy);
+      letter-spacing: -0.012em;
+      margin: 0;
+    }
+    .intro-lead em {
+      font-style: normal;
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+    .intro-body {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .intro-body p { margin: 0 0 16px; }
+    .intro-body p:last-child { margin-bottom: 0; }
+    .intro-body strong { color: var(--navy); font-weight: 700; }
+
+    .how-to {
+      max-width: 1200px;
+      margin: 32px auto 0;
+      padding: 24px 32px;
+      background: var(--beige);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: auto 1fr 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .how-to-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+    }
+    .how-to-step {
+      font-size: 13px;
+      color: var(--navy);
+      line-height: 1.45;
+      font-weight: 500;
+    }
+    .how-to-step strong {
+      display: block;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--teal-dark);
+      margin-bottom: 4px;
+    }
+
+    /* ============================ DIRECTION SECTION ============================ */
+    .direction {
+      padding: 64px 32px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .direction-header {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .direction-num {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 0.95;
+      color: var(--teal);
+      letter-spacing: -0.05em;
+      font-feature-settings: 'lnum';
+      margin-top: -6px;
+    }
+    .direction-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 8px;
+      letter-spacing: -0.018em;
+      line-height: 1.15;
+    }
+    .direction-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      background: var(--teal-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .direction-desc {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin: 0;
+      max-width: 720px;
+    }
+    .direction-desc strong { color: var(--navy); font-weight: 700; }
+
+    /* ============================ VARIANT CARDS ============================ */
+    .variants {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(26,48,64,0.10);
+      border-color: var(--rule-strong);
+    }
+    .card-preview {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      background: #f0f2f4;
+      border-bottom: 1px solid var(--rule);
+    }
+    .card-preview iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1400px;
+      height: 800px;
+      border: 0;
+      transform: scale(0.27);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(26, 48, 64, 0.92);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+    }
+    .card-body {
+      padding: 22px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 8px;
+      letter-spacing: -0.012em;
+      line-height: 1.25;
+    }
+    .card-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+      flex: 1;
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+    }
+    .card-action {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 9px 12px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .card-action.primary {
+      background: var(--teal);
+      color: #fff;
+    }
+    .card-action.primary:hover { background: var(--teal-dark); }
+
+    /* ============================ FOOTNOTES ============================ */
+    .footnotes {
+      background: var(--beige);
+      padding: 56px 32px 64px;
+      margin-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .footnotes-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footnotes-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin: 0 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footnotes-title::before {
+      content: '';
+      width: 28px;
+      height: 1.5px;
+      background: var(--teal);
+    }
+    .footnotes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .footnote h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 8px;
+      letter-spacing: -0.005em;
+    }
+    .footnote p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+    .footnote strong { color: var(--navy); font-weight: 700; }
+
+    /* ============================ DISCUSSION PROMPTS ============================ */
+    .prompts {
+      background: var(--navy);
+      color: #fff;
+      padding: 48px 32px;
+    }
+    .prompts-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .prompts-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 24px;
+      letter-spacing: -0.012em;
+    }
+    .prompts-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 32px;
+    }
+    .prompts-list li {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.92);
+      padding-left: 28px;
+      position: relative;
+    }
+    .prompts-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 16px;
+      height: 1.5px;
+      background: var(--teal);
+    }
+    .prompts-list li strong { color: #fff; font-weight: 700; }
+
+    /* ============================ FOOTER ============================ */
+    .doc-footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.65);
+      padding: 28px 32px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+    .doc-footer strong { color: #fff; font-weight: 600; }
+
+    /* ============================ RESPONSIVE ============================ */
+    @media (max-width: 960px) {
+      .intro-inner { grid-template-columns: 1fr; gap: 32px; }
+      .how-to { grid-template-columns: 1fr; gap: 16px; text-align: left; }
+      .variants { grid-template-columns: repeat(2, 1fr); }
+      .footnotes-grid { grid-template-columns: 1fr; }
+      .prompts-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .doc-header { padding: 36px 22px 44px; }
+      .intro { padding: 44px 22px; }
+      .direction { padding: 48px 22px 0; }
+      .variants { grid-template-columns: 1fr; padding: 0 22px 32px; }
+      .footnotes, .prompts { padding: 40px 22px; }
+      .direction-header { grid-template-columns: 1fr; gap: 12px; }
+      .direction-num { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================ DOCUMENT HEADER ============================ -->
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <p class="doc-eyebrow">Design Review · For Discussion</p>
+      <h1 class="doc-title">
+        Homepage Hero <em>Prototypes</em>
+        <br/>for First Baptist Church Huntersville
+      </h1>
+      <div class="doc-meta">
+        <span class="doc-meta-item"><strong>9 prototypes</strong> across 3 strategic directions</span>
+        <span class="doc-meta-item">Live site: <strong>mishtoba.wixstudio.com/fbc-h</strong></span>
+        <span class="doc-meta-item">Updated <strong id="today-date">today</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ INTRO ============================ -->
+  <section class="intro">
+    <div class="intro-inner">
+      <div>
+        <p class="intro-lead">
+          These are <em>conversation-starters,</em> not finished work. The goal is to give
+          leadership concrete options to react to &mdash; and find the direction that feels right for
+          our church.
+        </p>
+      </div>
+      <div class="intro-body">
+        <p>
+          Every prototype here uses the <strong>same masthead</strong> as our live Wix site &mdash;
+          same logo, same nav (About / Sermons / Ministry / Outreach / Giving), same dropdowns,
+          same teal-on-white styling. What changes is the hero below.
+        </p>
+        <p>
+          The nine prototypes explore three different <strong>strategic directions</strong>.
+          None of them are finished. None of them are right or wrong. They&rsquo;re reactions
+          worth comparing &mdash; and the best feedback often sounds like &ldquo;I like the messaging
+          from row 2 with the photo style of row 3.&rdquo;
+        </p>
+      </div>
+    </div>
+
+    <div class="how-to">
+      <span class="how-to-label">How to use this page</span>
+      <div class="how-to-step"><strong>1. Skim each row</strong>The three rows are three different strategies. Pick a strategy first, then variants.</div>
+      <div class="how-to-step"><strong>2. Click a card</strong>Click <em>View Full Screen</em> on any prototype to see it the way a visitor would.</div>
+      <div class="how-to-step"><strong>3. Tell us what resonates</strong>Mixing is encouraged. We&rsquo;ll iterate from your feedback.</div>
+    </div>
+  </section>
+
+  <!-- ============================ DIRECTION 1 — CONCIERGE ============================ -->
+  <section>
+    <div class="direction">
+      <div class="direction-header">
+        <div class="direction-num">01</div>
+        <div>
+          <span class="direction-tag">Newcomer-First Strategy</span>
+          <h2 class="direction-title">The Concierge Approach</h2>
+          <p class="direction-desc">
+            Optimized for the <strong>first-time visitor</strong> deciding whether to come on Sunday.
+            The hero answers their unspoken questions: when is it, where is it, what should I expect, can
+            my kids come, what do I wear, will I be singled out? A single confident invitation: <em>&ldquo;Plan Your Visit.&rdquo;</em>
+            Trades brand-establishing tone for conversion clarity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="variants">
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V1 · Refined Split</span>
+          <iframe src="concierge/v1.html" loading="lazy" title="V1 Refined Split preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Refined Split</h3>
+          <p class="card-desc">
+            55/45 layout. Photo on the left, warm-beige info panel on the right with service
+            times, four anxiety-killer tiles, address, and dual CTAs. Information-dense
+            without feeling cluttered.
+          </p>
+          <div class="card-actions">
+            <a href="concierge/v1.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V2 · Cinematic</span>
+          <iframe src="concierge/v2.html" loading="lazy" title="V2 Cinematic preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Cinematic Floating Card</h3>
+          <p class="card-desc">
+            Full-bleed photo carries the emotion. A glass concierge card floats over the
+            bottom-right with a compact 4-up reassurance row. Most aspirational of the three;
+            the photo does heavy lifting.
+          </p>
+          <div class="card-actions">
+            <a href="concierge/v2.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V3 · Editorial</span>
+          <iframe src="concierge/v3.html" loading="lazy" title="V3 Editorial preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Editorial Magazine</h3>
+          <p class="card-desc">
+            Three editorial zones: large headline + lede on top, photo paired with a navy
+            service-times callout, anxiety reassurance row at the bottom. Most refined and
+            magazine-like &mdash; trades immediacy for trust.
+          </p>
+          <div class="card-actions">
+            <a href="concierge/v3.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================ DIRECTION 2 — EXISTING MESSAGING ============================ -->
+  <section>
+    <div class="direction">
+      <div class="direction-header">
+        <div class="direction-num">02</div>
+        <div>
+          <span class="direction-tag">Brand-First Strategy</span>
+          <h2 class="direction-title">Our Existing Messaging, Reimagined</h2>
+          <p class="direction-desc">
+            Keeps the <strong>exact wording</strong> from the current live site &mdash; <em>&ldquo;Real
+            Relationships with God and One Another&rdquo;</em> &mdash; and gives it three different
+            visual treatments. Stays true to who we are; explores how we say it.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="variants">
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V1 · Atmospheric</span>
+          <iframe src="messaging/v1.html" loading="lazy" title="V1 Atmospheric Centered preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Atmospheric Centered</h3>
+          <p class="card-desc">
+            Full-bleed photo with the headline centered like a movie title card. Quiet
+            authority. The most reverent and timeless treatment.
+          </p>
+          <div class="card-actions">
+            <a href="messaging/v1.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V2 · Editorial</span>
+          <iframe src="messaging/v2.html" loading="lazy" title="V2 Editorial Pull-Quote preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Editorial Pull-Quote</h3>
+          <p class="card-desc">
+            <em>&ldquo;Real Relationships&rdquo;</em> rendered in italic Cormorant Garamond serif on
+            warm beige; an oversized opening quote-mark watermarks the panel. Most thoughtful,
+            most book-like.
+          </p>
+          <div class="card-actions">
+            <a href="messaging/v2.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V3 · Bold Stacked</span>
+          <iframe src="messaging/v3.html" loading="lazy" title="V3 Bold Stacked preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Bold Stacked Type</h3>
+          <p class="card-desc">
+            Type-as-hero. A massive black <strong>GOD</strong> anchors a manifesto-style stacked
+            headline. Most modern and confident of the three.
+          </p>
+          <div class="card-actions">
+            <a href="messaging/v3.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================ DIRECTION 3 — PEOPLE ============================ -->
+  <section>
+    <div class="direction">
+      <div class="direction-header">
+        <div class="direction-num">03</div>
+        <div>
+          <span class="direction-tag">People-First Strategy</span>
+          <h2 class="direction-title">Featuring Our People &mdash; Without Naming Them</h2>
+          <p class="direction-desc">
+            Combines the existing messaging with imagery that <strong>features actual people</strong>
+            without identifying any specific individual. Backlit silhouettes, congregation from
+            behind, close-up crops on hands &mdash; communicates that this is a real, full church
+            without putting any one face on the front page.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="variants">
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V1 · Worship Silhouette</span>
+          <iframe src="people/v1.html" loading="lazy" title="V1 Worship Silhouette preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Worship Silhouette</h3>
+          <p class="card-desc">
+            Full-bleed backlit worship photo. Hands raised, faces silhouetted by stage light.
+            Most emotional and atmospheric &mdash; one dominant image carries the entire feeling.
+          </p>
+          <div class="card-actions">
+            <a href="people/v1.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V2 · From Behind</span>
+          <iframe src="people/v2.html" loading="lazy" title="V2 Congregation From Behind preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Congregation From Behind</h3>
+          <p class="card-desc">
+            Wide shot from the back of the sanctuary looking forward. Heads &amp; shoulders only.
+            Communicates &ldquo;this place is real and full&rdquo; without identifying anyone.
+          </p>
+          <div class="card-actions">
+            <a href="people/v2.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-preview">
+          <span class="card-badge">V3 · Mosaic Grid</span>
+          <iframe src="people/v3.html" loading="lazy" title="V3 Mosaic Grid preview"></iframe>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Mosaic Grid &mdash; Many Hands</h3>
+          <p class="card-desc">
+            A 2&times;2 grid of close-up crops (Worship, Fellowship, Serve, Grow) sits beside a
+            text panel. All tight crops on hands and details &mdash; no faces. Communicates
+            breadth at a glance.
+          </p>
+          <div class="card-actions">
+            <a href="people/v3.html" target="_blank" class="card-action primary">View Full Screen ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================ FOOTNOTES ============================ -->
+  <section class="footnotes">
+    <div class="footnotes-inner">
+      <p class="footnotes-title">A few things worth knowing</p>
+      <div class="footnotes-grid">
+
+        <div class="footnote">
+          <h3>Photos are placeholders</h3>
+          <p>
+            Several prototypes use stock or unrelated imagery as placeholders. Each variant
+            includes a <strong>"Photo direction"</strong> overlay describing exactly what to
+            commission. None of these are the final photos.
+          </p>
+        </div>
+
+        <div class="footnote">
+          <h3>Masthead matches the live site</h3>
+          <p>
+            Every prototype uses the actual FBC Huntersville logo and the live Wix nav structure
+            (<strong>About / Sermons / Ministry / Outreach / Giving</strong>) with dropdowns
+            matching what&rsquo;s currently published. The hero is what changes.
+          </p>
+        </div>
+
+        <div class="footnote">
+          <h3>People imagery, intentionally anonymous</h3>
+          <p>
+            Direction 03 features people without identifying any individual: backlit
+            silhouettes, congregation seen from behind, close-up crops on hands. A two-hour
+            photo session on a Sunday could capture all four mosaic crops authentically.
+          </p>
+        </div>
+
+        <div class="footnote">
+          <h3>Mixing and matching is encouraged</h3>
+          <p>
+            &ldquo;I like the headline treatment from Direction 02 with the photo style from
+            Direction 03&rdquo; is exactly the kind of feedback that moves us forward. The
+            prototypes are deliberately separate so we can see the strategies clearly.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DISCUSSION PROMPTS ============================ -->
+  <section class="prompts">
+    <div class="prompts-inner">
+      <h2 class="prompts-title">Questions to bring to leadership</h2>
+      <ul class="prompts-list">
+        <li><strong>Who&rsquo;s the hero for?</strong> A first-time visitor, a long-time member, or both? The answer changes which direction wins.</li>
+        <li><strong>What does our photography look like?</strong> Are we comfortable featuring our people on the homepage even anonymously, or do we want to lead with place/atmosphere?</li>
+        <li><strong>How direct should we be?</strong> Do we want to tell visitors when, where, what to expect &mdash; or trust them to find that on their own?</li>
+        <li><strong>Refine or reimagine?</strong> Do we like the existing messaging and want a stronger visual treatment of it, or are we open to changing what the hero says entirely?</li>
+        <li><strong>What&rsquo;s the right CTA?</strong> Watch a sermon? Plan a visit? Both? Neither &mdash; just an invitation?</li>
+        <li><strong>Where do we want to invest in production photography?</strong> A single hero photo, multiple close-ups, or an ongoing library?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="doc-footer">
+    <strong>First Baptist Church Huntersville</strong> &middot; Homepage Hero Prototypes &middot;
+    For internal review and discussion only
+  </footer>
+
+  <script>
+    const date = new Date();
+    const formatted = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    document.getElementById('today-date').textContent = formatted;
+  </script>
+
+</body>
+</html>
