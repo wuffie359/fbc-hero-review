@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'Cormorant Garamond', 'Times New Roman', Georgia, serif">
+  <defs>
+    <linearGradient id="aBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f3a4a"/>
+      <stop offset="0.5" stop-color="#16303f"/>
+      <stop offset="1" stop-color="#0c1e2a"/>
+    </linearGradient>
+    <radialGradient id="aHalo" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#3a5d70" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="aPaint" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.9
+                             0 0 0 0 0.95
+                             0 0 0 0 1
+                             0 0 0 0.06 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <linearGradient id="aCross" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5d7e8f"/>
+      <stop offset="0.5" stop-color="#7fa1b3"/>
+      <stop offset="1" stop-color="#3d5969"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#aBg)"/>
+  <rect width="1280" height="720" fill="url(#aHalo)"/>
+  <rect width="1280" height="720" filter="url(#aPaint)" opacity="0.55"/>
+  <ellipse cx="380" cy="350" rx="340" ry="260" fill="#a4c0cf" fill-opacity="0.08"/>
+  <ellipse cx="380" cy="350" rx="200" ry="160" fill="#cfe1ea" fill-opacity="0.06"/>
+  <g opacity="0.55">
+    <polygon points="380,210 1180,560 1140,610 340,260" fill="#0a1822"/>
+    <polygon points="280,330 940,690 900,720 240,380" fill="#0a1822"/>
+  </g>
+  <!-- Cross beams: gradient only, no fake highlight stripes -->
+  <rect x="345" y="180" width="70" height="380" fill="url(#aCross)" stroke="#2c4658" stroke-width="2"/>
+  <rect x="245" y="290" width="270" height="56" fill="url(#aCross)" stroke="#2c4658" stroke-width="2"/>
+
+  <!-- Series eyebrow: italic serif centered with flanking rules -->
+  <text x="640" y="120" fill="#cfe1ea" font-size="40" font-style="italic" font-weight="500" text-anchor="middle" letter-spacing="2">A Sunday Message</text>
+  <line x1="540" y1="140" x2="740" y2="140" stroke="#7fa1b3" stroke-width="1" opacity="0.55"/>
+
+  <!-- Title: CENTERED, weight bumped to 600, dynamic font-size -->
+  <text x="640" y="540" fill="#e8f0f4" font-size="76" font-style="italic" font-weight="600" letter-spacing="0.5" text-anchor="middle">Doubt, Then Faith</text>
+
+  <!-- Footer utility -->
+  <text x="1200" y="660" fill="#a4c0cf" font-size="26" font-style="italic" font-weight="500" text-anchor="end">Dr. Stacy Nowell</text>
+  <text x="80" y="660" fill="#a4c0cf" font-size="20" font-weight="600" letter-spacing="3" font-family="Montserrat, system-ui, sans-serif">APRIL 12 · 2026</text>
+</svg>

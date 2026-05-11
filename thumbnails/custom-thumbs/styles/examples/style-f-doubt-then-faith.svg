@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Montserrat, system-ui, sans-serif">
+  <!-- Three vertical color blocks (slightly retuned widths for better proportion) -->
+  <rect x="0" y="0" width="160" height="720" fill="#1A3040"/>
+  <rect x="160" y="0" width="800" height="720" fill="#0088b8"/>
+  <rect x="960" y="0" width="320" height="720" fill="#F2EAE7"/>
+
+  <!-- Episode number: HORIZONTAL now, dominant centerpiece of the navy block -->
+  <text x="80" y="380" fill="#cfe1ea" fill-opacity="0.85" font-size="92" font-weight="900" letter-spacing="-2" text-anchor="middle">—</text>
+  <line x1="40" y1="410" x2="120" y2="410" stroke="#cfe1ea" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="80" y="438" fill="#cfe1ea" fill-opacity="0.7" font-size="11" font-weight="700" letter-spacing="3" text-anchor="middle">PART</text>
+
+  <!-- Series eyebrow on teal block -->
+  <line x1="200" y1="100" x2="260" y2="100" stroke="#cfe1ea" stroke-width="2"/>
+  <text x="280" y="108" fill="#e6f4f9" font-size="14" font-weight="800" letter-spacing="5">A SUNDAY MESSAGE</text>
+
+  <!-- Title (responsive size, looser letter-spacing) -->
+  <text x="200" y="380" fill="#ffffff" font-size="84" font-weight="900" letter-spacing="-2.5">Doubt, Then Faith</text>
+
+  <!-- Bottom rule + meta on teal block -->
+  <line x1="200" y1="600" x2="320" y2="600" stroke="#cfe1ea" stroke-width="3"/>
+  <text x="200" y="640" fill="#e6f4f9" font-size="14" font-weight="700" letter-spacing="4">APRIL 12 · 2026</text>
+  <text x="200" y="666" fill="#a4c0cf" font-size="12" font-weight="600" letter-spacing="3">DR. STACY NOWELL</text>
+
+  <!-- Proper cross on beige block: vertical longer than horizontal, beam at upper third -->
+  <g transform="translate(1120,360)">
+    <rect x="-7" y="-110" width="14" height="220" fill="#0088b8"/>  <!-- vertical, 220 tall -->
+    <rect x="-50" y="-50" width="100" height="14" fill="#0088b8"/>   <!-- horizontal, at upper-third -->
+  </g>
+
+  <!-- Brand mark (un-rotated, small, bottom-center of beige block) -->
+  <text x="1120" y="660" fill="#1A3040" font-size="10" font-weight="800" letter-spacing="2" text-anchor="middle">FIRST BAPTIST</text>
+  <text x="1120" y="678" fill="#1A3040" font-size="10" font-weight="800" letter-spacing="2" text-anchor="middle">CHURCH HUNTERSVILLE</text>
+</svg>

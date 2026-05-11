@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'Cormorant Garamond', 'Times New Roman', Georgia, serif">
+  <defs>
+    <linearGradient id="eBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7F1EE"/>
+      <stop offset="1" stop-color="#E8DDD8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#eBg)"/>
+
+  <!-- Quote mark: smaller, top-left corner only — no longer collides with title -->
+  <text x="80" y="180" fill="#0088b8" fill-opacity="0.18" font-size="240" font-weight="600" font-style="italic">&#x201C;</text>
+
+  <!-- Series eyebrow (Montserrat utility) -->
+  <line x1="80" y1="270" x2="160" y2="270" stroke="#006a8e" stroke-width="2"/>
+  <text x="180" y="278" fill="#006a8e" font-size="14" font-weight="700" letter-spacing="5" font-family="Montserrat, system-ui, sans-serif">UNCOMFORTABLE</text>
+
+  <!-- Title (Cormorant hero, responsive size, generous left margin) -->
+  <text x="80" y="430" fill="#1A3040" font-size="92" font-weight="500" font-style="italic" letter-spacing="-1">Disagreements.</text>
+
+  <!-- Attribution rule + pastor (Cormorant — the literary attribution voice) -->
+  <line x1="80" y1="500" x2="200" y2="500" stroke="#0088b8" stroke-width="2"/>
+  <text x="80" y="552" fill="#1A3040" font-size="32" font-weight="500" font-style="italic">&#8212; Dr. Stacy Nowell</text>
+
+  <!-- Footer date (Montserrat utility) -->
+  <text x="80" y="680" fill="#4a5d6c" font-size="13" font-weight="700" letter-spacing="4" font-family="Montserrat, system-ui, sans-serif">MAY 10 · 2026</text>
+</svg>

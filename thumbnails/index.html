@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thumbnail Style Choices — FBC Huntersville</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;padding:0}
+    :root{
+      --navy:#1A3040;
+      --teal:#0088b8;
+      --teal-dark:#006a8e;
+      --teal-light:#e6f4f9;
+      --beige:#F2EAE7;
+      --ink:#1A3040;
+      --ink-soft:#4a5d6c;
+      --rule:rgba(26,48,64,0.12);
+    }
+    body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:#fafbfc;line-height:1.6}
+
+    /* HEADER */
+    .doc-header{background:var(--navy);color:#fff;padding:36px 28px 40px;border-bottom:4px solid var(--teal)}
+    .doc-header-inner{max-width:1280px;margin:0 auto}
+    .doc-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--teal-light);margin:0 0 14px;display:flex;align-items:center;gap:12px}
+    .doc-eyebrow::before{content:'';width:32px;height:1.5px;background:var(--teal)}
+    .doc-title{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.15;margin:0 0 8px;letter-spacing:-0.018em}
+    .doc-meta{font-size:13px;color:rgba(255,255,255,0.7);letter-spacing:0.04em}
+    .doc-meta strong{color:#fff}
+
+    /* INTRO */
+    .intro{max-width:1280px;margin:32px auto 0;padding:0 28px;font-size:15px;color:var(--ink-soft);line-height:1.7}
+    .intro p{margin:0 0 12px;max-width:860px}
+    .intro strong{color:var(--navy)}
+    .intro em{font-style:italic;color:var(--teal-dark);font-weight:600}
+
+    /* STYLE SECTION */
+    .style-section{max-width:1280px;margin:48px auto 0;padding:0 28px}
+    .style-header{
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      gap:24px;
+      align-items:center;
+      margin-bottom:20px;
+      padding-bottom:18px;
+      border-bottom:1px solid var(--rule);
+    }
+    .style-letter{
+      font-size:64px;
+      font-weight:900;
+      line-height:1;
+      color:var(--teal);
+      letter-spacing:-0.04em;
+      font-family:'Montserrat',sans-serif;
+    }
+    .style-info h2{font-size:24px;font-weight:800;color:var(--navy);margin:0 0 4px;letter-spacing:-0.012em}
+    .style-info .style-name{font-size:13px;font-weight:600;color:var(--teal-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px}
+    .style-info p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.55}
+    .style-info p strong{color:var(--navy)}
+    .style-meta{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:flex-end;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--ink-soft);
+    }
+    .style-meta .tag{
+      background:var(--teal-light);
+      color:var(--teal-dark);
+      padding:4px 10px;
+      border-radius:999px;
+      letter-spacing:0.1em;
+    }
+
+    /* EXAMPLE PAIR */
+    .examples{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+    .example{background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+    .example-thumb{
+      aspect-ratio:16/9;
+      width:100%;
+      display:block;
+      background:#0a1620;
+    }
+    .example-thumb svg{width:100%;height:100%;display:block}
+    .example-caption{
+      padding:10px 14px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--ink-soft);
+      border-top:1px solid var(--rule);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .example-caption .pill{
+      background:var(--beige);
+      color:var(--navy);
+      font-size:10px;
+      padding:3px 8px;
+      border-radius:999px;
+      letter-spacing:0.1em;
+    }
+
+    /* WHY/STRENGTHS */
+    .style-notes{
+      background:#fff;
+      border:1px solid var(--rule);
+      border-radius:6px;
+      padding:18px 22px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:24px;
+    }
+    .style-notes div h4{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal-dark);margin:0 0 6px}
+    .style-notes div p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.5}
+    .style-notes div p strong{color:var(--navy)}
+
+    /* DECISION FOOTER */
+    .decision{max-width:1280px;margin:48px auto 0;padding:0 28px 64px}
+    .decision-box{background:var(--navy);color:#fff;padding:32px 36px;border-radius:8px}
+    .decision-box h2{font-size:22px;margin:0 0 12px;color:#fff;letter-spacing:-0.01em}
+    .decision-box p{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.65;margin:0 0 12px}
+    .decision-options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:18px}
+    .decision-option{background:rgba(255,255,255,0.06);padding:14px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.12)}
+    .decision-option strong{display:block;color:#fff;font-size:14px;margin-bottom:4px;letter-spacing:0.04em}
+    .decision-option span{font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.5}
+
+    @media (max-width:760px){
+      .examples{grid-template-columns:1fr}
+      .style-notes{grid-template-columns:1fr}
+      .style-header{grid-template-columns:auto 1fr;row-gap:8px}
+      .style-meta{grid-column:1/-1;flex-direction:row;align-items:flex-start}
+      .decision-options{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <p class="doc-eyebrow">Thumbnail Design · Pick a Direction</p>
+      <h1 class="doc-title">Twelve thumbnail styles for review</h1>
+      <p class="doc-meta">
+        Each shown applied to a <strong>series sermon</strong> AND a <strong>one-off</strong> so you can see how each handles the difference. All on-brand with the website palette and type.
+      </p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p>
+      Below are three distinct visual approaches to sermon thumbnails. <strong>Each style stays within the FBC palette</strong>
+      &mdash; navy <code style="background:#1A3040;color:#fff;padding:1px 6px;border-radius:2px;font-size:12px">#1A3040</code>,
+      teal <code style="background:#0088b8;color:#fff;padding:1px 6px;border-radius:2px;font-size:12px">#0088b8</code>,
+      warm beige <code style="background:#F2EAE7;color:#1A3040;padding:1px 6px;border-radius:2px;font-size:12px">#F2EAE7</code>
+      &mdash; and uses Montserrat + Cormorant Garamond, the same fonts that run across the website mockups.
+    </p>
+    <p>
+      The <strong>series</strong> example uses <em>Uncomfortable: Disagreements</em>; the <strong>one-off</strong> uses
+      <em>Doubt Then Faith</em> (no parent series). Watch how each style adapts when there&rsquo;s no series tag.
+    </p>
+  </section>
+
+  <!-- ============================ STYLE A ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">A</div>
+      <div class="style-info">
+        <div class="style-name">Heritage Cross</div>
+        <h2>Traditional · reverent · classical</h2>
+        <p>Italic serif title over a textured navy background, a 3D cross casting a long X-shaped shadow. The same design language as your existing <strong>Shadows of the Cross</strong> series template &mdash; you flagged this as the default you liked.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Default</span>
+        <span>Cormorant Garamond italic</span>
+        <span>Navy + steel cool</span>
+      </div>
+    </div>
+
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-a-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Uncomfortable</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-a-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">No series</span></div>
+      </div>
+    </div>
+
+    <div class="style-notes">
+      <div>
+        <h4>Strengths</h4>
+        <p><strong>Visual continuity.</strong> If you&rsquo;re working through a doctrinal/biblical series, the cross + cast shadow makes every entry feel like part of one set without designing each individually.</p>
+      </div>
+      <div>
+        <h4>Series handling</h4>
+        <p>Series name appears as italic eyebrow at top center. <strong>One-off sermons get the label "A Sunday Message"</strong> &mdash; same slot, neutral text, no awkward empty space.</p>
+      </div>
+      <div>
+        <h4>Best for</h4>
+        <p>Lent, Holy Week, expository series, communion, baptism &mdash; anything where reverence is the dominant feeling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE B ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">B</div>
+      <div class="style-info">
+        <div class="style-name">Modern Brand</div>
+        <h2>Confident · contemporary · type-driven</h2>
+        <p>Warm beige base, massive Montserrat 900 title in navy, a teal wedge with a stylized FBC steeple-bridge mark cutting in from the right. <strong>Series gets a teal pill with episode number</strong> top-left; one-offs hide the pill entirely.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Modern</span>
+        <span>Montserrat 900</span>
+        <span>Beige + teal + navy</span>
+      </div>
+    </div>
+
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-b-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Pill + episode</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-b-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Pill removed</span></div>
+      </div>
+    </div>
+
+    <div class="style-notes">
+      <div>
+        <h4>Strengths</h4>
+        <p><strong>Brand-forward.</strong> Reads as a current, energetic FBC product. Same type and palette as the website hero variants &mdash; thumbnails feel like they came from the same place as the rest of the site.</p>
+      </div>
+      <div>
+        <h4>Series handling</h4>
+        <p>Best-in-class: a <strong>colored pill with episode number</strong> ("UNCOMFORTABLE · PT 03") makes it obvious this is part of an arc. One-offs gracefully drop the pill.</p>
+      </div>
+      <div>
+        <h4>Best for</h4>
+        <p>Topical contemporary series (Uncomfortable, New Year New Mercies), guest preachers, anything that should feel fresh + shareable on social.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE C ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">C</div>
+      <div class="style-info">
+        <div class="style-name">Atmospheric Cinema</div>
+        <h2>Cinematic · evocative · special-occasion</h2>
+        <p>Sunset/dusk gradient with a steeple silhouette in the distance and tree foreground. Centered italic serif title overlaid in white, with a small uppercase eyebrow above. Mood-driven, photo-like &mdash; built to evoke before it informs.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Cinematic</span>
+        <span>Cormorant + Montserrat</span>
+        <span>Sunset gradient</span>
+      </div>
+    </div>
+
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-c-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">SERIES · ___ eyebrow</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-c-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">A SUNDAY MESSAGE</span></div>
+      </div>
+    </div>
+
+    <div class="style-notes">
+      <div>
+        <h4>Strengths</h4>
+        <p><strong>Emotional pull.</strong> Best at stopping the scroll. Title carries the entire weight of the design &mdash; no logo, no chrome, just a feeling.</p>
+      </div>
+      <div>
+        <h4>Series handling</h4>
+        <p>Series name lives as a small uppercase eyebrow above the title (between two short rules). When there&rsquo;s no series, "A SUNDAY MESSAGE" fills the same slot. No layout difference between cases.</p>
+      </div>
+      <div>
+        <h4>Best for</h4>
+        <p>Special services (Easter, Tenebrae, Christmas Eve, Palm Sunday), one-off testimonies, vision Sundays. Less ideal for routine weekly sermons because the strong atmosphere stops feeling special when used every week.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE D ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">D</div>
+      <div class="style-info">
+        <div class="style-name">Logo Mark Hero</div>
+        <h2>Brand-led · identity-forward · recognizable</h2>
+        <p>The actual <strong>FBC logo</strong> sits centered at the top, sermon title below. Inspired directly by your <em>March 29 Palm Sunday</em> YouTube thumbnail where the logo carries the visual. In a sermon list, every entry says &ldquo;FBC&rdquo; first &mdash; recognition over interpretation.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag" style="background:#fff4d6;color:#7a5d00">Your Mar 29 ask</span>
+        <span>Real FBC logo</span>
+        <span>Cream + teal + navy</span>
+      </div>
+    </div>
+
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-d-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Series eyebrow below logo</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-d-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Same slot · "A Sunday Message"</span></div>
+      </div>
+    </div>
+
+    <!-- Bonus: the actual March 29 Palm Sunday rendered in this style -->
+    <div class="examples" style="grid-template-columns:1fr;margin-top:14px">
+      <div class="example" style="background:#f9f3ee">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-d-palm-sunday-kinsman-redeemer.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">
+          <span>Your March 29 ask &mdash; <strong style="color:#1A3040">Palm Sunday: Our Kinsman-Redeemer</strong> rendered in this style</span>
+          <span class="pill" style="background:#fff4d6;color:#7a5d00">Specifically requested</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-notes">
+      <div>
+        <h4>Strengths</h4>
+        <p><strong>Strongest brand recall.</strong> Same logo, every sermon &mdash; in a thumbnail grid, the brand pattern is instantly readable as "all FBC content." Excellent for Wix sermon-card lists and YouTube playlists.</p>
+      </div>
+      <div>
+        <h4>Series handling</h4>
+        <p>Series name lives as a small letter-spaced eyebrow between two short rules, just below the logo. One-offs use "A SUNDAY MESSAGE" in the same slot &mdash; visually identical, no awkward gap.</p>
+      </div>
+      <div>
+        <h4>Best for</h4>
+        <p>Weekly sermon library, YouTube playlist where the brand should be the unifying thread. <strong>Trade-off:</strong> least visually distinctive sermon-to-sermon &mdash; titles do all the differentiating.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE E ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">E</div>
+      <div class="style-info">
+        <div class="style-name">Editorial Quote</div>
+        <h2>Refined · meditative · book-like</h2>
+        <p>Massive italic Cormorant Garamond title with an oversized opening quote-mark watermark. Same visual language as your <em>Editorial Pull-Quote</em> homepage hero variant &mdash; treats every sermon title like the opening line of a chapter.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Magazine</span>
+        <span>Cormorant Garamond italic</span>
+        <span>Beige + teal + navy</span>
+      </div>
+    </div>
+
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-e-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Eyebrow + italic title</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-e-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Same layout · neutral series</span></div>
+      </div>
+    </div>
+
+    <div class="style-notes">
+      <div>
+        <h4>Strengths</h4>
+        <p>Reads as a <strong>book chapter title</strong>. The oversized quote mark adds editorial gravitas without crowding the title. Pairs well with reflective, narrative preaching.</p>
+      </div>
+      <div>
+        <h4>Series handling</h4>
+        <p>Series sits as a small Montserrat caps eyebrow at the top &mdash; deliberately quiet. The title is the protagonist. One-offs use "A SUNDAY MESSAGE" in the same slot.</p>
+      </div>
+      <div>
+        <h4>Best for</h4>
+        <p>Reflective sermons, vision Sundays, pastor letters, anything where the title is the message. <strong>Trade-off:</strong> minimal series differentiation &mdash; series name doesn&rsquo;t pop visually.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE F ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">F</div>
+      <div class="style-info">
+        <div class="style-name">Color Block</div>
+        <h2>Loud · contemporary · scroll-stopping</h2>
+        <p>Three vertical color blocks in solid navy / teal / beige. Massive Montserrat 900 title sits in the teal block; episode number runs sideways down the navy block; brand name runs sideways up the beige block. Designed to <strong>survive social-media compression</strong>.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Social-ready</span>
+        <span>Montserrat 900</span>
+        <span>Hard-edge color split</span>
+      </div>
+    </div>
+
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-f-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Episode number "03"</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-f-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Em-dash in number slot</span></div>
+      </div>
+    </div>
+
+    <div class="style-notes">
+      <div>
+        <h4>Strengths</h4>
+        <p><strong>Stops the scroll.</strong> Survives heavy compression. Reads on a phone in sunlight. Looks like a contemporary Bible-app or podcast-thumbnail aesthetic.</p>
+      </div>
+      <div>
+        <h4>Series handling</h4>
+        <p>Episode number rotated 90&deg; on the left navy block doubles as decorative element AND series indicator. One-offs use an em-dash &ldquo;&mdash;&rdquo; in the same slot &mdash; reads as &ldquo;not part of a series&rdquo; without breaking layout.</p>
+      </div>
+      <div>
+        <h4>Best for</h4>
+        <p>Contemporary topical series, Instagram/Facebook shares, anywhere the thumbnail competes for attention. <strong>Trade-off:</strong> least &ldquo;reverent&rdquo; option &mdash; can feel commercial if used for liturgical/sacrament services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE G ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">G</div>
+      <div class="style-info">
+        <div class="style-name">March 29 — Literal Clone</div>
+        <h2>Use the existing brand wait-card · same image every sermon</h2>
+        <p>Exactly the FBC logo graphic from your March 29 livestream thumbnail. <strong>No design layer added, no title overlay, no per-sermon text.</strong> Every sermon that needs a custom thumbnail uses this same image. The sermon title lives in the card caption text only.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag" style="background:#fff4d6;color:#7a5d00">Literal clone</span>
+        <span>Single image, reused</span>
+        <span>Zero per-sermon edits</span>
+      </div>
+    </div>
+
+    <div class="examples" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="example">
+        <div class="example-thumb"><img src="custom-thumbs/styles/examples/style-g-march-29-clone.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="example-caption">As Palm Sunday thumb <span class="pill">Original use</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><img src="custom-thumbs/styles/examples/style-g-march-29-clone.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="example-caption">As Uncomfortable Disagreements <span class="pill">Reused</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><img src="custom-thumbs/styles/examples/style-g-march-29-clone.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="example-caption">As Doubt Then Faith <span class="pill">Reused</span></div>
+      </div>
+    </div>
+
+    <div class="style-notes">
+      <div>
+        <h4>Strengths</h4>
+        <p><strong>Zero design effort, ever.</strong> Already approved (it&rsquo;s your existing graphic). Maximum brand recognition &mdash; every sermon thumbnail is the FBC mark. No risk of design drift over time.</p>
+      </div>
+      <div>
+        <h4>Series handling</h4>
+        <p>None &mdash; series isn&rsquo;t shown in the thumbnail at all. Series, title, and date all live in the card text caption next to the thumbnail. The image itself stays identical every week.</p>
+      </div>
+      <div>
+        <h4>Trade-off worth knowing</h4>
+        <p><strong>Sermons aren&rsquo;t visually distinguishable.</strong> A grid of sermon cards looks like the same thumbnail repeating &mdash; people scan by reading titles, not glancing at images. That&rsquo;s either a feature (consistent brand) or a bug (browsing friction), depending on how the sermon list is used.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ RESEARCH-BASED SECTION ============================ -->
+  <section style="background:#1A3040;color:#fff;padding:48px 28px 36px;margin-top:48px;border-top:6px solid #0088b8">
+    <div style="max-width:1280px;margin:0 auto">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#7fc7df;margin:0 0 12px">Research-based variants · added 5/10</p>
+      <h2 style="font-size:32px;font-weight:800;color:#fff;margin:0 0 14px;letter-spacing:-0.018em">Five more variants, pulled from the top-tier church references</h2>
+      <p style="font-size:15.5px;color:rgba(255,255,255,0.82);line-height:1.65;max-width:900px;margin:0 0 8px">
+        After studying 225 thumbnails across 15 churches, the strongest recurring patterns are reproduced below as Styles <strong style="color:#fff">H, I, J, K, L</strong> &mdash; each one a direct adaptation of a specific reference church&rsquo;s system, restyled to use FBC&rsquo;s brand palette and type.
+      </p>
+      <p style="font-size:14px;color:rgba(255,255,255,0.72);line-height:1.6;max-width:900px;margin:0">
+        Also included: <strong style="color:#fff">Style D v3</strong> (blend fix &mdash; the cream-gradient seam is gone) and <strong style="color:#fff">Style G v2</strong> (keeps the March 29 logo wait-card but adds room for sermon-specific description).
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE H ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">H</div>
+      <div class="style-info">
+        <div class="style-name">Pastor Cutout (Joel Osteen pattern)</div>
+        <h2>The industry-standard template &mdash; ~60% of churches use this</h2>
+        <p>Pastor cutout right + bold italic-condensed title left + small circular badge top-right. Reference: <strong>Joel Osteen, NewSpring, Elevation, Andy Stanley</strong>. This is the single most-used sermon thumbnail pattern in the research.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Industry standard</span>
+        <span>Montserrat 900 italic</span>
+        <span>Needs pastor photo</span>
+      </div>
+    </div>
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-h-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Pastor placeholder</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-h-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Same layout</span></div>
+      </div>
+    </div>
+    <div class="style-notes">
+      <div><h4>Strengths</h4><p>Best <strong>conversion per template hour</strong>. Once pastor photos exist, swap title + photo, ship. This is what most churches with strong YT presence actually do.</p></div>
+      <div><h4>Production requirement</h4><p><strong>Needs a pastor photo library.</strong> 1-2 hour studio session captures 10+ usable cutouts. Placeholder silhouette in the mockup is replaced with a real PNG (transparent bg).</p></div>
+      <div><h4>Best for</h4><p>Weekly sermons. Topical series. Anything where the pastor is the unifying brand element. <strong>Trade-off:</strong> not appropriate when the pastor isn&rsquo;t preaching (guest speakers, missionary updates).</p></div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE I ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">I</div>
+      <div class="style-info">
+        <div class="style-name">Elliptical Frame (Village Church pattern)</div>
+        <h2>Most refined system in the entire research &mdash; 5 levels of hierarchy</h2>
+        <p>Thin white elliptical line frame contains all typography on a dark stage background. Reference: <strong>The Village Church (Matt Chandler)</strong>. Visible hierarchy: SERMON eyebrow &rarr; WEEK number &rarr; SERIES name (serif) &rarr; sermon title (sans) &rarr; pastor. A single design signature (the ellipse) ties every thumbnail together.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag" style="background:#1A3040;color:#fff">Premium</span>
+        <span>Cormorant + Montserrat</span>
+        <span>Stage-photo background</span>
+      </div>
+    </div>
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-i-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Full hierarchy</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-i-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">"STANDALONE" in week slot</span></div>
+      </div>
+    </div>
+    <div class="style-notes">
+      <div><h4>Strengths</h4><p><strong>Most refined</strong> system on the list. The elliptical frame is a distinctive signature element that makes the entire archive feel cohesive without each thumbnail having to be uniquely designed.</p></div>
+      <div><h4>Series handling</h4><p>Excellent. Episode number in the WEEK slot, series name in big serif uppercase. Multi-week series read as a clear set.</p></div>
+      <div><h4>Best for</h4><p>Multi-week expository series, vision Sundays, sermons where you want a "premium production" feel. <strong>Higher cost:</strong> needs decent stage photography and a real pastor cutout to land.</p></div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE J ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">J</div>
+      <div class="style-info">
+        <div class="style-name">Object Block (Saddleback pattern)</div>
+        <h2>Color-block split with <em>object</em> photo &mdash; not pastor</h2>
+        <p>Hard split: solid navy left + object photo right. The object (open Bible, communion bread/cup, candle, cross) is series-specific and reused across all weeks. Reference: <strong>Saddleback &mdash; Doable Discipleship: Galatians</strong>. Useful when the series is the brand, not the pastor.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Series-led</span>
+        <span>Cormorant series + Montserrat</span>
+        <span>Object photo &middot; not pastor</span>
+      </div>
+    </div>
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-j-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Object: open Bible</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-j-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Same object can stay</span></div>
+      </div>
+    </div>
+    <div class="style-notes">
+      <div><h4>Strengths</h4><p><strong>No pastor photo required.</strong> Series-led design that works even without a photo library. Object photography is easier to commission &mdash; one good shot per series serves 4-8 weeks.</p></div>
+      <div><h4>Series handling</h4><p>Outstanding. Object stays the same across all weeks, title changes per sermon. Reads as a clearly branded set without re-photographing per week.</p></div>
+      <div><h4>Best for</h4><p>Expository series (Romans, Galatians, etc.), communion/sacrament services, any context where an object photo carries more meaning than a person photo.</p></div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE K ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">K</div>
+      <div class="style-info">
+        <div class="style-name">Editorial Magazine (Passion City pattern)</div>
+        <h2>Most literary feel &mdash; treats the title as the hero</h2>
+        <p>Aged paper / warm cream background + massive italic serif "The" prefix + bold serif uppercase main title. Reference: <strong>Passion City Church &mdash; The Thread</strong>. Title is the protagonist; everything else recedes.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Literary</span>
+        <span>Cormorant Garamond display</span>
+        <span>Warm earth palette</span>
+      </div>
+    </div>
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-k-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Two-word title</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-k-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Same layout</span></div>
+      </div>
+    </div>
+    <div class="style-notes">
+      <div><h4>Strengths</h4><p><strong>Most distinctive.</strong> Reads as a magazine cover. Photography becomes secondary &mdash; the typography carries the brand.</p></div>
+      <div><h4>Series handling</h4><p>Series is a small Montserrat caps label at top &mdash; deliberately quiet. The title pair (italic + bold) is the visual anchor.</p></div>
+      <div><h4>Best for</h4><p>Reflective sermons, pastor letters, vision Sundays, anything with a strong literary title. <strong>Trade-off:</strong> requires good title copywriting &mdash; weak titles look exposed in this style.</p></div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE L ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter">L</div>
+      <div class="style-info">
+        <div class="style-name">Podcast Style (Andy Stanley pattern)</div>
+        <h2>Treats sermons as podcast episodes &mdash; audio-first aesthetic</h2>
+        <p>Hard split: dark navy textured left + bright teal right + circular pastor portrait. Title in 3 lines of white sans-serif uppercase. Teal pill carries the series. Audio waveform graphic at the bottom signals "weekly content." Reference: <strong>The Andy Stanley Leadership Podcast</strong>.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag">Podcast-style</span>
+        <span>Montserrat 800 caps</span>
+        <span>Circle portrait</span>
+      </div>
+    </div>
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-l-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">3-line title</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-l-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">Date in pill slot</span></div>
+      </div>
+    </div>
+    <div class="style-notes">
+      <div><h4>Strengths</h4><p>Reads as <strong>contemporary audio-first content</strong>. The waveform graphic doubles as a "this is regular weekly content" signal. Works well in mobile feeds.</p></div>
+      <div><h4>Series handling</h4><p>Teal pill is flexible &mdash; series name for series sermons, date for one-offs. Stays branded either way.</p></div>
+      <div><h4>Best for</h4><p>Weekly sermons where you want a "podcast-feed" aesthetic. Best for younger demographic. <strong>Trade-off:</strong> the waveform reads as "audio podcast" &mdash; some may want a video-first signal instead.</p></div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE D v3 (BLEND FIX) ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter" style="color:#0088b8">D&prime;</div>
+      <div class="style-info">
+        <div class="style-name">Logo Mark Hero &mdash; v3 (Blend fix)</div>
+        <h2>Same logo, no more "white-rectangle-on-cream" seam</h2>
+        <p>The old Style D used a cream gradient background; the logo&rsquo;s white background sat on top of cream and looked like a floating white box. <strong>Fix:</strong> background is now pure white (matches the logo seamlessly) with a top teal bar and bottom navy footer providing brand structure instead of the gradient.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag" style="background:#fff4d6;color:#7a5d00">Updated</span>
+        <span>Pure white background</span>
+        <span>Navy footer block</span>
+      </div>
+    </div>
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-d-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Seamless logo</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-d-palm-sunday-kinsman-redeemer.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">March 29 Palm Sunday <span class="pill">Comparison ref</span></div>
+      </div>
+    </div>
+    <div class="style-notes">
+      <div><h4>What changed</h4><p>Background <em>cream gradient</em> &rarr; <strong>pure white</strong>. Logo blends invisibly. Bottom footer became a solid navy strip with white type for clearer hierarchy.</p></div>
+      <div><h4>Trade-off vs old D</h4><p>The cream gradient gave a "warmer" feeling. The white version reads as cleaner and more modern. Brand teal stripe at top + navy footer make it feel intentionally structured.</p></div>
+      <div><h4>Best for</h4><p>Same as before &mdash; weekly sermon library with strongest brand recall. Now without the visual seam that bothered you.</p></div>
+    </div>
+  </section>
+
+  <!-- ============================ STYLE G v2 (LOGO + DESCRIPTION) ============================ -->
+  <section class="style-section">
+    <div class="style-header">
+      <div class="style-letter" style="color:#7a5d00">G&prime;</div>
+      <div class="style-info">
+        <div class="style-name">Logo + Description (G v2)</div>
+        <h2>Keeps the March 29 wait-card &mdash; adds room for per-sermon information</h2>
+        <p>Top 60% is the original FBC wait-card aesthetic (white background, large centered logo, "Where Huntersville Community Happens" tagline). Bottom 40% is a navy description strip showing series + sermon title (italic serif) + date. Best of both: brand recognition <em>and</em> per-sermon information.</p>
+      </div>
+      <div class="style-meta">
+        <span class="tag" style="background:#fff4d6;color:#7a5d00">NEW</span>
+        <span>Logo on white</span>
+        <span>Navy description strip</span>
+      </div>
+    </div>
+    <div class="examples">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-g2-palm-sunday-kinsman-redeemer.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Palm Sunday March 29 <span class="pill" style="background:#fff4d6;color:#7a5d00">Original Mar 29 + description</span></div>
+      </div>
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-g2-uncomfortable-disagreements.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">Series sermon <span class="pill">Logo + series + title</span></div>
+      </div>
+    </div>
+    <div class="examples" style="grid-template-columns:1fr;margin-top:14px">
+      <div class="example">
+        <div class="example-thumb"><object type="image/svg+xml" data="custom-thumbs/styles/examples/style-g2-doubt-then-faith.svg" style="width:100%;height:100%"></object></div>
+        <div class="example-caption">One-off sermon <span class="pill">"A Sunday Message" eyebrow</span></div>
+      </div>
+    </div>
+    <div class="style-notes">
+      <div><h4>What this solves</h4><p>The original G has zero per-sermon information &mdash; every thumbnail is identical. G v2 keeps the <strong>strong brand recognition</strong> of the wait-card while giving each sermon its own visible title and date.</p></div>
+      <div><h4>Series handling</h4><p>Series name appears in small teal letterspaced caps above the title (matching FBC&rsquo;s sermon page pattern). One-offs use "A Sunday Message" in the same slot.</p></div>
+      <div><h4>Best for</h4><p>The strongest <strong>compromise</strong> between effort and information. Brand-forward like G, informational like Style B. Worth strong consideration as the everyday default.</p></div>
+    </div>
+  </section>
+
+  <!-- ============================ DECISION ============================ -->
+  <section class="decision">
+    <div class="decision-box">
+      <h2>Which direction wins?</h2>
+      <p>
+        Pick one as the FBC default and I&rsquo;ll apply it to the three sermons flagged for replacement
+        (<em>Uncomfortable Disagreements, Doubt Then Faith, Palm Sunday: Our Kinsman-Redeemer</em>) plus optionally
+        swap <em>God Will Provide the Lamb</em> to match the rest of the Shadows of the Cross series.
+      </p>
+      <p>
+        It&rsquo;s also fine to <strong>mix</strong> &mdash; e.g., <em>&ldquo;D as the everyday default for weekly sermons, A for biblical/Lent series, C for Easter/Tenebrae.&rdquo;</em>
+      </p>
+
+      <div class="decision-options" style="grid-template-columns:repeat(3,1fr)">
+        <div class="decision-option">
+          <strong>A &mdash; Heritage Cross</strong>
+          <span>Reverent, traditional, biblical-series-ready.</span>
+        </div>
+        <div class="decision-option">
+          <strong>B &mdash; Modern Brand</strong>
+          <span>Brand-forward, modern, episode-number pill.</span>
+        </div>
+        <div class="decision-option">
+          <strong>C &mdash; Atmospheric Cinema</strong>
+          <span>Most emotional. Best for special services.</span>
+        </div>
+        <div class="decision-option">
+          <strong>D &mdash; Logo Mark Hero</strong>
+          <span>Logo + sermon title. Strongest brand recall.</span>
+        </div>
+        <div class="decision-option">
+          <strong>E &mdash; Editorial Quote</strong>
+          <span>Book-chapter feel. Best for reflective sermons.</span>
+        </div>
+        <div class="decision-option">
+          <strong>F &mdash; Color Block</strong>
+          <span>Scroll-stopping. Built for social shares.</span>
+        </div>
+        <div class="decision-option" style="grid-column:1/-1;background:#fff4d6;border-color:#f0e4b6;color:#7a5d00">
+          <strong style="color:#7a5d00">G &mdash; March 29 Literal Clone</strong>
+          <span style="color:#7a5d00">Use your existing FBC brand graphic as-is. Same image for every sermon. Zero design changes.</span>
+        </div>
+      </div>
+
+      <!-- Research-based additions -->
+      <p style="font-size:14px;color:rgba(255,255,255,0.65);margin:28px 0 14px;letter-spacing:0.04em">
+        <strong style="color:#7fc7df">Or one of the 5 research-based variants + 2 updates:</strong>
+      </p>
+      <div class="decision-options" style="grid-template-columns:repeat(3,1fr)">
+        <div class="decision-option">
+          <strong>H &mdash; Pastor Cutout</strong>
+          <span>Industry-standard pattern (Joel Osteen). Needs pastor photo library.</span>
+        </div>
+        <div class="decision-option">
+          <strong>I &mdash; Elliptical Frame</strong>
+          <span>Most refined (Village Church). 5 levels of hierarchy. Premium feel.</span>
+        </div>
+        <div class="decision-option">
+          <strong>J &mdash; Object Block</strong>
+          <span>Saddleback-style. No pastor photo needed &mdash; uses series-relevant objects.</span>
+        </div>
+        <div class="decision-option">
+          <strong>K &mdash; Editorial Magazine</strong>
+          <span>Passion City literary aesthetic. Title is the hero. Distinctive.</span>
+        </div>
+        <div class="decision-option">
+          <strong>L &mdash; Podcast Style</strong>
+          <span>Andy Stanley pattern. Circle portrait + waveform. Audio-first vibe.</span>
+        </div>
+        <div class="decision-option" style="background:#fff4d6;border-color:#f0e4b6;color:#7a5d00">
+          <strong style="color:#7a5d00">D&prime; &mdash; Logo Hero (blend fix)</strong>
+          <span style="color:#7a5d00">Original D, but the cream-gradient seam is gone. Logo blends seamlessly.</span>
+        </div>
+        <div class="decision-option" style="grid-column:1/-1;background:#fff4d6;border-color:#f0e4b6;color:#7a5d00">
+          <strong style="color:#7a5d00">G&prime; &mdash; Logo + Description</strong>
+          <span style="color:#7a5d00">Keeps the March 29 wait-card on top + adds a navy description strip below with series, title, date. Likely the strongest compromise between brand recognition and per-sermon information.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

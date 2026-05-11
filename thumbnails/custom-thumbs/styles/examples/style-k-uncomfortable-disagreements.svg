@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'Cormorant Garamond', Georgia, serif">
+  <defs>
+    <linearGradient id="kPaper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5EDE6"/>
+      <stop offset="0.5" stop-color="#EBDFD9"/>
+      <stop offset="1" stop-color="#E0D2C9"/>
+    </linearGradient>
+    <filter id="kPaperTexture" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="13"/>
+      <feColorMatrix values="0 0 0 0 0.45
+                             0 0 0 0 0.35
+                             0 0 0 0 0.25
+                             0 0 0 0.07 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Aged paper background -->
+  <rect width="1280" height="720" fill="url(#kPaper)"/>
+  <rect width="1280" height="720" filter="url(#kPaperTexture)" opacity="0.7"/>
+
+  <!-- Pastor silhouette placeholder anchored left -->
+  <g opacity="0.22" fill="#7a6557">
+    <circle cx="280" cy="300" r="105"/>
+    <path d="M120 720 L120 540 Q120 430 280 430 Q440 430 440 540 L440 720 Z"/>
+  </g>
+  <g transform="translate(160,640)">
+    <rect x="0" y="0" width="240" height="56" rx="2" fill="#1A3040" fill-opacity="0.92" stroke="#9c6f3e" stroke-width="1"/>
+    <text x="12" y="20" fill="#f5cc8a" font-size="9" font-weight="700" letter-spacing="2.5" font-family="Montserrat, sans-serif">PASTOR CUTOUT</text>
+    <text x="12" y="36" fill="#f5e3c4" font-size="9.5" font-weight="500" font-family="Montserrat, sans-serif">Anchor left, warm</text>
+    <text x="12" y="48" fill="#f5e3c4" font-size="9.5" font-weight="500" font-family="Montserrat, sans-serif">portrait tones</text>
+  </g>
+
+  <!-- Top label (utility caps, Montserrat) -->
+  <line x1="500" y1="120" x2="560" y2="120" stroke="#9c6f3e" stroke-width="2"/>
+  <text x="580" y="128" fill="#5a4536" font-size="14" font-weight="700" letter-spacing="6" font-family="Montserrat, sans-serif">SERMON · UNCOMFORTABLE</text>
+
+  <!-- Big italic serif title "The" -->
+  <text x="540" y="290" fill="#5a4536" font-size="92" font-weight="500" font-style="italic" letter-spacing="-1">The</text>
+
+  <!-- Big bold serif uppercase title -->
+  <text x="540" y="430" fill="#1A3040" font-size="130" font-weight="700" letter-spacing="-2">AWKWARD</text>
+
+  <!-- Subtle hairline rule -->
+  <line x1="540" y1="500" x2="780" y2="500" stroke="#9c6f3e" stroke-width="1" opacity="0.6"/>
+
+  <!-- Pastor attribution + date (Montserrat for utility) -->
+  <text x="540" y="550" fill="#5a4536" font-size="20" font-weight="500" font-style="italic">&#8212; Dr. Stacy Nowell</text>
+  <text x="540" y="600" fill="#7a6557" font-size="13" font-weight="700" letter-spacing="3.5" font-family="Montserrat, sans-serif">May 10, 2026</text>
+
+  <!-- Tiny FBC mark bottom-right -->
+  <g transform="translate(1200,660)">
+    <circle cx="0" cy="0" r="32" fill="#1A3040"/>
+    <text x="0" y="6" fill="#f5cc8a" font-size="15" font-weight="800" letter-spacing="-1" text-anchor="middle" font-family="Montserrat, sans-serif">FBC</text>
+  </g>
+</svg>
